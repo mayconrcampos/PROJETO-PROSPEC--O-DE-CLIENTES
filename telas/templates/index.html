@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+    {% block 'head' %} {% endblock  %}
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="{% static 'img/icons/icon-48x48.png' %}" />
+
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<title>Login - Cliente</title>
+
+	<link href="{% static 'css/app.css' %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .logo-top, .card-top {
+            background: rgb(47,137,252) !important;
+            background: linear-gradient(264deg, rgba(47,137,252,1) 0%, rgba(9,9,121,1) 69%) !important;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+	<main class="d-flex w-100">
+		<div class="container d-flex flex-column">
+			<div class="row vh-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle flex-sm-column align-items-sm-center">
+						<img src="{% static 'images/photos/logo-auto-manager.png' %}" alt="..." class="img-fluid rounded">
+
+						<div class="text-center mt-4">
+							<h1 class="h2">Faça o login para acessar
+							</h1>
+						</div>
+
+						<div class="card bg-dark text-white">
+							
+							<div class="card-body">
+								<div class="m-sm-4">
+
+									<form action="" method="POST">
+										{% csrf_token %}
+										<div class="mb-3">
+											<label class="form-label">Email</label>
+											<input 
+                                                class="form-control form-control-lg"
+                                                type="email" 
+                                                name="email" 
+											    placeholder="Digite seu e-mail" 
+                                                />
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Senha</label>
+											<input 
+                                                class="form-control form-control-lg"
+                                                type="password" name="senha" placeholder="Digite sua senha" 
+                                                />
+										</div>
+										<div class="text-center mt-3">
+								
+											<!-- <button type="submit" class="btn btn-lg btn-primary">
+												<i class="align-middle" data-feather="log-in"></i>
+												Fazer Login
+											</button> -->
+                                            <a href="{% url 'dashboard' %}" class="btn btn-lg btn-primary logo-top">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                                Fazer Login
+                                            </a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}
+    Perfis
+{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+    <div class="card p-2 card-top">
+        <h5 class="card-title h5 text-white">
+            <i class="fas fa-chart-line"></i>
+            PERFIS
+        </h5>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 col-lg-4 col-xl-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/photos/perfil-da-empresa.png' %}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Cadastro, Atualização</h5>
+                  <p class="card-text">Cadastre e mantenha atualizado os dados de sua empresa.</p>
+                    <a href="#" class="btn btn-primary card-top">
+                        <i class="fas fa-building me-3"></i>
+                        ACESSAR
+                    </a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-12 col-lg-4 col-xl-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/photos/perfis-usuarios.png' %}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Cadastro, Atualização, Exclusão</h5>
+                  <p class="card-text">Cadastre e administre os usuários do sistema.</p>
+                    <a href="#" class="btn btn-primary card-top">
+                        <i class="fas fa-users me-3"></i>
+                        ACESSAR
+                    </a>
+                </div>
+              </div>
+        </div>
+    </div>
+
+{% endblock 'conteudo' %}
