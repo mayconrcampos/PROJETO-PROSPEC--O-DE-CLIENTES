@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}
+    MINERAR EMPRESAS VIA CASADOSDADOS.COM.BR
+{% endblock 'titulo' %}
+
+<style>
+    .copyable{
+        cursor: pointer !important;
+    }
+</style>
+
+{% block 'conteudo' %}
+    <div class="card p-2 card-top">
+        <h5 class="card-title h5 text-white">
+            <i class="fas fa-chart-line"></i>
+            REGISTRO E ACOMPANHAMENTO DE PROSPECÇÕES
+        </h5>
+    </div>
+
+    {% include 'messages_alert.html' %}
+
+    <div class="col-12 p-3">
+        Subir Arquivo csv ou xlsx:
+
+        <hr class="my-2">
+
+        <form action="{% url 'subir_arquivo' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            <label for="arquivo">
+                Selecione o Arquivo
+            </label>
+            <input type="file" name="arquivo" id="arquivo" class="form-control" accept=".csv, .xlsx, .ods">
+        
+            <button type="submit" class="btn btn-secondary mt-2">
+                <i class="fas fa-upload"></i>
+                Subir Arquivo
+            </button>
+        </form>
+        
+    </div>
+
+
+
+{% endblock 'conteudo' %}

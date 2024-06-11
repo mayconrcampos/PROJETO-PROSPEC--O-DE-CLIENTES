@@ -13,7 +13,7 @@ class Empresa(Base):
     razao_social = models.CharField("Razão Social", max_length=256, blank=False)
     cnpj = models.CharField("CNPJ", unique=True, max_length=18, blank=False)
     ramo = models.CharField("Ramo de Atuação", max_length=128, blank=False)
-    email = models.EmailField("Email", unique=True, blank=False)
+    email = models.EmailField("Email", blank=True)
     fone = models.CharField("fone", max_length=15, blank=False)
     tem_zap = models.BooleanField("Tem Whatsapp?", default=False)
     cnae_principal = models.CharField("CNAE Principal", max_length=256, blank=True)

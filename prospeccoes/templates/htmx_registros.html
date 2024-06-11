@@ -1,0 +1,192 @@
+{% load static %}
+
+<div class="row p-3">
+          
+    <div class="col-12 p-3">
+        <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Ações</th>
+                <th scope="col" class="text-center">Telefone</th>
+                <th scope="col">Razão Social</th>
+                <th scope="col" class="text-center">CNPJ</th>
+                <th scope="col" class="text-center">Ramo</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Tem Whatsapp?</th>
+                <th scope="col" class="text-center">Prospecção</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for empresa in empresas %}
+                    <tr class="bg-light border">
+                        <td>
+                            <div class="dropdown">
+                                <button title="Clique aqui para abrir o menu" class="btn btn-sm btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-chevron-circle-down"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a 
+                                        class="dropdown-item"
+                                        href="#"
+                                        data-bs-toggle="modal" data-bs-target="#modalProspeccao{{empresa.id}}"
+                                        >
+                                            <i class="fas fa-edit"></i>
+                                            Iniciar Prospecção
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="fas fa-envelope"></i>
+                                            Enviar Email Marketing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fas fa-trash-alt"></i>
+                                            Excluir
+                                        </a>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                        </td>
+                        <td class="copyable text-center">{{ empresa.fone }}</td>
+
+                        <th scope="row">{{empresa.razao_social}}</th>
+                        <td class="text-center">{{empresa.cnpj}}</td>
+                        <td class="text-center">{{empresa.ramo}}</td>
+                        <td class="text-center">{{empresa.email}}</td>
+                        <td class="text-center">
+                            {% if empresa.tem_zap %}
+                            <i class="fas fa-thumbs-up"></i>
+                            {% else %}
+                            <i class="fas fa-times"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="p-3 pb-5">
+            
+                            {% if empresa.msg_enviada %}
+                            <div class="badge bg-success">
+                                Mensagem Enviada:
+                                <i class="far fa-thumbs-up bg-success"></i>
+                            </div>
+                            {% else %}
+                                <div class="badge bg-danger">
+                                    Mensagem Enviada:
+                                    <i class="fas fa-window-close"></i>
+                                </div>
+                            {% endif %}
+                        </td>
+                        <td class="p-3 pb-5">
+                            
+                            {% if empresa.cliente_respondeu %}
+                            <div class="badge bg-success">
+                                Cliente Respondeu:
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                            {% else %}
+                            <div class="badge bg-danger">
+                                Cliente Respondeu:
+                                <i class="fas fa-window-close"></i>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="p-3 pb-5">
+                            
+                            {% if empresa.indicado %}
+                            <div class="badge bg-success">
+                                Indicado:
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                            {% else %}
+                            <div class="badge bg-danger">
+                                Indicado:
+                                <i class="fas fa-window-close"></i>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="p-3 pb-5">
+                            
+                            {% if empresa.comentarios %}
+                                Comentários: 
+                                {{empresa.comentarios}}
+                            {% else %}
+                            <div class="badge bg-danger">
+                                Comentários: 
+                                <i class="fas fa-window-close"></i>
+                            </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% include 'modal_prospeccao.html' %}
+                {% endfor %}
+            </tbody>
+          </table>
+
+        <div class="alert alert-light">
+            Página {{ empresas.number }} de {{ paginator.num_pages }}.
+        </div>
+
+                <!-- paginação -->
+      <ul class="pagination pagination-sm mt-1">
+        {% if empresas.has_previous %}
+        <li class="page-item">
+          <a
+            class="page-link text-dark"
+            href="?page={{ empresas.previous_page_number }}&itens_por_pagina={{itens_por_pagina}}&tab=5"
+            >Anterior</a
+          >
+        </li>
+        {% endif %} 
+        {% for page in paginator.page_range %}
+        <li
+          class="page-item{% if page == paginator.number %} 
+          active{% endif %}"
+        >
+          <a class="page-link text-dark" href="?page={{page}}&itens_por_pagina={{itens_por_pagina}}&tab=5"
+            >{{ page }}</a
+          >
+        </li>
+        {% endfor %} {% if empresas.has_next %}
+        <li class="page-item">
+          <a
+            class="page-link text-dark"
+            href="?page={{empresas.next_page_number}}&itens_por_pagina={{itens_por_pagina}}&tab=5"
+            >Próximo</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const copyableCells = document.querySelectorAll('.copyable');
+
+        copyableCells.forEach(cell => {
+            cell.addEventListener('click', function() {
+                const textToCopy = this.innerText.trim();
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        alert('Fone copiado: ' + textToCopy);
+                    })
+                    .catch(err => {
+                        console.error('Erro ao copiar o texto: ', err);
+                    });
+                // Abre o link em uma nova janela
+                //window.open("https://open.wa.link/open", '_blank');
+            });
+        });
+    });
+</script>

@@ -1,0 +1,156 @@
+{% load static %}
+
+  <div 
+    class="modal fade" 
+    id="modalProspeccao{{empresa.id}}" 
+    tabindex="-1" 
+    data-bs-backdrop="static" 
+    data-bs-keyboard="false"
+    aria-labelledby="exampleModalLabel" 
+    aria-hidden="true"
+    >
+    
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                <i class="fas fa-database"></i>
+                DADOS DESTA PROSPECÇÃO
+            </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row p-3">
+            <form 
+            method="post" 
+            hx-post="{% url 'registrar_prospeccao' %}" 
+            hx-trigger="submit"
+            hx-target="#registros"
+            hx-on="htmx:afterOnLoad: fecharModal('{{ empresa.id }}')"
+            class="row w-100 border p-3"
+            >
+                {% csrf_token %}
+                <div class="form-check form-switch">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="flexSwitchCheckChecked" 
+                        name="msg_enviada"
+                        {% if empresa.msg_enviada %}
+                            checked
+                            disabled
+                        {% endif %}
+                        >
+                    <label class="form-check-label" for="flexSwitchCheckChecked">
+                        Já foi enviada mensagem ao cliente?
+                    </label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="flexSwitchCheckChecked" 
+                        name="cliente_respondeu"
+                        {% if empresa.cliente_respondeu %}
+                            checked
+                            disabled
+                        {% endif %}
+                        >
+                    <label class="form-check-label" for="flexSwitchCheckChecked">
+                        O cliente respondeu a mensagem?
+                    </label>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        role="switch" 
+                        id="flexSwitchCheckChecked" 
+                        name="indicado"
+                        {% if empresa.indicado %}
+                            checked
+                            disabled
+                        {% endif %}
+                        >
+                    <label class="form-check-label" for="flexSwitchCheckChecked">
+                        Ele aceitou ser indicado?
+                    </label>
+                </div>
+
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Digite um comentário" 
+                    name="comentario"
+                    {% if empresa.comentario %}
+                        value="{{empresa.comentario}}"
+                        readonly
+                    {% endif %}
+                    >
+
+                <input type="hidden" name="empresa_id" value="{{empresa.id}}">
+                <input type="hidden" name="page" value="{{empresas.number}}">
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-window-close"></i>
+                        FECHAR
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        SALVAR MODIFICAÇÕES
+                    </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("htmx:afterOnLoad", function(event) {
+        // Obtém o conteúdo HTML do evento
+        const innerHTML = event.detail.target.innerHTML;
+
+        // Cria um elemento temporário para armazenar o conteúdo HTML
+        const tempElement = document.createElement('div');
+        tempElement.innerHTML = innerHTML;
+
+        // Encontra o elemento que contém o ID da modal
+        const modalIdElement = tempElement.querySelector('[id^="modalProspeccao"]');
+
+        // Verifica se o elemento foi encontrado e extrai o ID
+        if (modalIdElement) {
+            const modalId = modalIdElement.id.replace('modalProspeccao', '');
+            console.log("Modal ID:", modalId);
+
+            // Chama a função fecharModal com o ID da modal
+            fecharModal(modalId);
+        }
+      });
+    function fecharModal(modalId) {
+        console.log("To rodando", modalId)
+        // Obtém a modal pelo ID
+        const modalElement = document.getElementById(`modalProspeccao${modalId}`);
+        if (modalElement) {
+            // Remove a classe 'show'
+            modalElement.classList.remove('show');
+            
+            // Define o estilo de display para 'none'
+            modalElement.style.display = 'none';
+            
+            // Remove o backdrop manualmente
+            const backdrops = document.getElementsByClassName('modal-backdrop');
+            for (let backdrop of backdrops) {
+                backdrop.parentNode.removeChild(backdrop);
+            }
+        
+            // Remove a classe do corpo do documento que impede a rolagem
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'auto';
+        }
+    }
+</script>

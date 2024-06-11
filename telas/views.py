@@ -33,6 +33,16 @@ def cadastra_empresa(request):
     TelaServices.cadastra_empresa(request=request)
     return redirect("empresas")
 
+@login_requerido
+def atualiza_empresa(request):
+    TelaServices.atualiza_empresa(request=request)
+    return redirect("empresas")
+
+@login_requerido
+def excluir_empresa(request):
+    TelaServices.excluir_empresa(request=request)
+    return redirect("empresas")
+
 # def configuracoes(request):
 #     return render(request, "configuracoes.html")
 

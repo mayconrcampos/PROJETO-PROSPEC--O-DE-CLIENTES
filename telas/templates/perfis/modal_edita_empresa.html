@@ -1,0 +1,103 @@
+{% load static %}
+
+  <div 
+    class="modal fade" 
+    id="modalEditaEmpresa{{empresa.id}}" 
+    tabindex="-1" 
+    data-bs-backdrop="static" 
+    data-bs-keyboard="false"
+    aria-labelledby="exampleModalLabel" 
+    aria-hidden="true"
+    >
+    
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                <i class="fas fa-database"></i>
+                DADOS DA EMPRESA
+            </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <form method="post" action="{% url 'atualiza_empresa' %}" class="row w-100 border p-3">
+                {% csrf_token %}
+                <div class="col-md-6">
+                  <label for="razao_social" class="form-label">Razão Social</label>
+                  <input type="text" class="form-control form-control-sm" id="razao_social" name="razao_social" value="{{empresa.razao_social}}">
+                </div>
+                <div class="col-md-6">
+                  <label for="cnpj" class="form-label">CNPJ</label>
+                  <input type="cnpj" class="form-control form-control-sm" id="cnpj" name="cnpj" value="{{empresa.cnpj}}">
+                </div>
+                <div class="col-3">
+                  <label for="ramo" class="form-label">Ramo</label>
+                  <input type="text" class="form-control form-control-sm" id="ramo" name="ramo" value="{{empresa.ramo}}">
+                </div>
+                <div class="col-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control form-control-sm" id="email" name="email" value="{{empresa.email}}">
+                </div>
+                <div class="col-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control form-control-sm" id="telefone" name="telefone" value="{{empresa.fone}}">
+                </div>
+                <div class="col-3">
+                  <label for="tem_zap" class="form-label">Tem Whatsapp?</label>
+                  <select name="tem_zap" id="tem_zap" class="form-control form-control-sm">
+                    {% if empresa.tem_zap %}
+                      <option selected value="1">Sim</option>
+                      <option value="0">Não</option>
+                    {% else %}
+                      <option  value="1">Sim</option>
+                      <option selected value="0">Não</option>
+                    {% endif %}
+                  </select>
+                </div>
+                <div class="col-6">
+                    <label for="cnae_principal" class="form-label">CNAE Principal</label>
+                    <input type="text" class="form-control form-control-sm" id="cnae_principal" name="cnae_principal" value="{{empresa.cnae_principal}}">
+                </div>
+                <div class="col-6">
+                    <label for="cnae_secundario" class="form-label">CNAE Secundários</label>
+                    <input type="text" class="form-control form-control-sm" id="cnae_secundario" name="cnae_secundario" value="{{empresa.cnae_secundario}}">
+                </div>
+                <div class="col-4">
+                      <label for="bairro" class="form-label">Bairro</label>
+                      <input type="text" class="form-control form-control-sm" id="bairro" name="bairro" value="{{empresa.bairro}}">
+                </div>
+                <div class="col-4">
+                      <label for="cidade" class="form-label">Cidade</label>
+                      <input type="text" class="form-control form-control-sm" id="cidade" name="cidade" value="{{empresa.cidade}}">
+                </div>
+                <div class="col-4">
+                      <label for="uf" class="form-label">UF</label>
+                      <select name="uf" id="uf" class="form-control form-control-sm">
+                        {% for uf in ufs %}
+                          {% if uf.sigla == empresa.uf %}
+                            <option selected value="{{uf.sigla}}">{{uf.nome}}</option>
+                          {% else %}
+                            <option value="{{uf.sigla}}">{{uf.nome}}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                </div>
+  
+              </div>
+            </div>
+            <input type="hidden" name="empresa_id" value="{{empresa.id}}">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <i class="fas fa-window-close"></i>
+                FECHAR
+              </button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i>
+                SALVAR MODIFICAÇÕES
+              </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>\n<html>\n
+
+<head>
+    <meta charset="utf-8">\n<title>Pesquisa Avan\xc3\xa7ada - Casa dos Dados</title>\n
+    <meta name="robots" content="noarchive">\n
+    <meta name="theme-color" content="#3273DC">\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\n
+    <meta property="og:locale" content="pt_BR">\n
+    <meta property="og:site_name" content="Casa dos Dados">\n
+    <meta property="og:type" content="website">\n
+    <link rel="icon" type="image/png" href="/static-v2/img/logo.png" sizes="200x200">\n
+    <script async="" defer="" src="/static-v2/js/denakop-202202049829382323ui.js"></script>\n
+    <script async="" defer="" src="//autozep.adzep.com.br/config/casadosdados.js"></script>\n
+    <script async="" defer="" nonce="NCN6X9XGFW7YxXRWsbx2bw"
+        src="https://fundingchoicesmessages.google.com/i/pub-5784424731845028?ers=1"></script>\n
+    <script async="" defer="" nonce="OI9BIBOWwUFztqWUM6Nafw"
+        src="/static-v2/assets/js/google-messaging-20230731.js"></script>\n
+    <script defer="" crossorigin="anonymous"
+        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5784424731845028"
+        data-hid="6f4c83b"></script>\n
+    <script
+        data-hid="bc50e5a">if (!window.__abg_called) {
+                (window.adsbygoogle = window.adsbygoogle || []); adsbygoogle.onload = function () {
+                \n              adsbygoogle.pauseAdRequests = 0; \n[].forEach.call(document.getElementsByClassName(\'adsbygoogle\'), function () { adsbygoogle.push({\n        google_ad_client: "ca-pub-5784424731845028",\n        overlays: {bottom: false},\n        \n      }); })\n            }; window.__abg_called = true;}</script>
+    \n
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet">\n
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js" defer="" async=""></script>\n
+    <script defer="" async="" src="/static-v2/assets/js/qoHkJasVH9/echarts.min.js"></script>\n
+    <script src="/static-v2/js/clever-1092812890002.js" id="clever-core" data-cfasync="false" async=""></script>\n
+    <script src="https://hhkld.com/tag/load-107828.js" async=""></script>
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/entry.05b5061b.js">
+    <link rel="preload" as="style" href="/assets-v2/entry.77b378f2.css">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/default.74da8ecf.js">
+    <link rel="preload" as="style" href="/assets-v2/default.b65fd68b.css">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/pesquisa-avancada.bb5d3b3b.js">
+    <link rel="preload" as="style" href="/assets-v2/pesquisa-avancada.c3a9a1bd.css">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/Clever.391dd832.js">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/Adsbygoogle.868c3ceb.js">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/Util.189ce035.js">
+    <link rel="modulepreload" as="script" crossorigin href="/assets-v2/Viads.2b200501.js">
+    <link rel="stylesheet" href="/assets-v2/entry.77b378f2.css">
+    <link rel="stylesheet" href="/assets-v2/default.b65fd68b.css">
+    <link rel="stylesheet" href="/assets-v2/pesquisa-avancada.c3a9a1bd.css">
+</head>\n
+
+<body>
+    <div id="__nuxt">
+        <div>
+            <div data-v-93468561>
+                <nav class="navbar is-light" role="navigation" aria-label="main navigation" data-v-93468561>
+                    <div class="navbar-brand" data-v-93468561><a class="navbar-item" href="/" data-v-93468561><img
+                                src="/static-v2/img/logo.png" alt="Logo da p\xc3\xa1gina" data-v-93468561></a><a
+                            role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+                            class="navbar-burger burger" data-v-93468561><span aria-hidden="true"
+                                data-v-93468561></span><span aria-hidden="true" data-v-93468561></span><span
+                                aria-hidden="true" data-v-93468561></span></a></div>
+                    <div id="navbarBasicExample" class="navbar-menu" data-v-93468561>
+                        <div class="navbar-start" data-v-93468561><a class="navbar-item" href="/" data-v-93468561>
+                                In\xc3\xadcio </a>
+                            <div class="navbar-item has-dropdown is-hoverable" data-v-93468561><a class="navbar-link"
+                                    data-v-93468561> Solu\xc3\xa7\xc3\xb5es </a>
+                                <div class="navbar-dropdown" data-v-93468561><a class="navbar-item" href="/solucao/cnpj"
+                                        data-v-93468561> Pesquisa por CNPJ, Raz\xc3\xa3o Social ou S\xc3\xb3cio </a><a
+                                        class="navbar-item" href="https://dados-abertos-rf-cnpj.casadosdados.com.br"
+                                        target="_blank" data-v-93468561>Dados Abertos de CNPJ da Receita Federal </a>
+                                    <hr class="navbar-divider" data-v-93468561><a class="navbar-item"
+                                        href="/solucao/cep" data-v-93468561> Pesquisa de Endere\xc3\xa7o ou CEP </a><a
+                                        class="navbar-item" href="/solucao/cep/arquivo" data-v-93468561> Base de Dados
+                                        de CEP </a>
+                                </div>
+                            </div><a class="navbar-item" href="/solucao/cnpj/pesquisa-avancada" data-v-93468561>
+                                Pesquisa Avan\xc3\xa7ada </a>
+                        </div>
+                    </div>
+                </nav>
+            </div><!--[-->
+            <div class="top-footer">
+                <section class="section">
+                    <div class="columns">
+                        <div class="column is-offset-1 is-4">
+                            <div class="content">
+                                <h1 class="title is-3"> Pesquisa Avan\xc3\xa7ada </h1>
+                            </div>
+                        </div>
+                        <div class="column is-6">
+                            <div><!----></div>
+                        </div>
+                    </div>
+                    <hr style="margin-top:0;">
+                    <div class="columns search-content">
+                        <div class="column is-offset-1 is-3">
+                            <section>
+                                <div>
+                                    <div class="field"><!--[--><label class="label"><!--[-->Raz\xc3\xa3o Social ou Nome
+                                            Fantasia<!--]--></label><!--]--><!--[-->
+                                        <div class="taginput control">
+                                            <div class="taginput-container is-focusable">
+                                                <!--[--><!--[--><!--]--><!--]-->
+                                                <div class="autocomplete control">
+                                                    <div class="control has-icons-left"><input ellipsis
+                                                            placeholder="Raz\xc3\xa3o Social ou Fantasia"
+                                                            aria-autocomplete="list" class="input is-is-normal"
+                                                            type="is-info" autocomplete="off" value><span
+                                                            class="icon is-is-normal is-left" style=""><i
+                                                                class="fa fa-tag"></i></span><!--v-if--><!--v-if-->
+                                                    </div>
+                                                    <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                        style="display:none;">
+                                                        <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]--><!--v-if--><!--v-if-->
+                                                    </div>
+                                                </div>
+                                            </div><!--v-if-->
+                                        </div><!--]--><!--v-if-->
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="column is-4">
+                            <section>
+                                <div class="field"><!--[--><label class="label"><!--[-->Atividade Principal
+                                        (CNAE)<!--]--></label><!--]--><!--[-->
+                                    <div class="taginput control">
+                                        <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                            <div class="autocomplete control">
+                                                <div class="control has-icons-left"><input
+                                                        placeholder="C\xc3\xb3digo ou nome da atividade"
+                                                        aria-autocomplete="list" class="input is-is-normal" type="text"
+                                                        autocomplete="off" value><span class="icon is-is-normal is-left"
+                                                        style=""><i class="fa fa-tag"></i></span><!--v-if--><!--v-if-->
+                                                </div>
+                                                <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                    style="display:none;">
+                                                    <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]-->
+                                                    <div class="dropdown-item"><!--[--><!--[--> N\xc3\xa3o foi
+                                                        encontrado <!--]--><!--]--></div><!--v-if-->
+                                                </div>
+                                            </div>
+                                        </div><!--v-if-->
+                                    </div><!--]--><!--v-if-->
+                                </div><label class="switch"><input type="checkbox" role="switch" class="" value="false"
+                                        true-value="true" false-value="false"><span class="check is-warning"><span
+                                            class=""></span></span><span class="control-label"><!--[--> Incluir
+                                        Atividade Secund\xc3\xa1ria <!--]--></span></label>
+                            </section>
+                        </div>
+                        <div class="column is-3">
+                            <section>
+                                <div class="field"><!--[--><label class="label"><!--[-->Natureza
+                                        Jur\xc3\xaddica<!--]--></label><!--]--><!--[-->
+                                    <div class="taginput control">
+                                        <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                            <div class="autocomplete control">
+                                                <div class="control has-icons-left"><input
+                                                        placeholder="C\xc3\xb3digo ou nome da natureza"
+                                                        aria-autocomplete="list" class="input is-is-normal"
+                                                        type="is-info" autocomplete="off" value><span
+                                                        class="icon is-is-normal is-left" style=""><i
+                                                            class="fa fa-tag"></i></span><!--v-if--><!--v-if--></div>
+                                                <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                    style="display:none;">
+                                                    <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]-->
+                                                    <div class="dropdown-item"><!--[--><!--[--> N\xc3\xa3o foi
+                                                        encontrado <!--]--><!--]--></div><!--v-if-->
+                                                </div>
+                                            </div>
+                                        </div><!--v-if-->
+                                    </div><!--]--><!--v-if-->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="columns search-content">
+                        <div class="column is-2 is-offset-1">
+                            <div class="field"><!--[--><label class="label"><!--[-->Situa\xc3\xa7\xc3\xa3o
+                                    Cadastral<!--]--></label><!--]--><!--[-->
+                                <div class="control select"><select class=""><!--v-if--><!--[--><!--[-->
+                                        <option value="ATIVA">ATIVA</option>
+                                        <option value="BAIXADA">BAIXADA</option>
+                                        <option value="INAPTA">INAPTA</option>
+                                        <option value="SUSPENSA">SUSPENSA</option>
+                                        <option value="NULA">NULA</option><!--]--><!--]-->
+                                    </select><!--v-if--><!--v-if--></div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field"><!--[--><label class="label"><!--[-->Estado
+                                    (UF)<!--]--></label><!--]--><!--[-->
+                                <div class="taginput control">
+                                    <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                        <div class="autocomplete control">
+                                            <div class="control has-icons-left"><input placeholder="Selecione o estado"
+                                                    aria-autocomplete="list" class="input is-is-normal" type="text"
+                                                    autocomplete="off" value><span class="icon is-is-normal is-left"
+                                                    style=""><i class="fa fa-home"></i></span><!--v-if--><!--v-if-->
+                                            </div>
+                                            <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                style="display:none;"><!--v-if--><!--[--><!--[--><!--v-if--><!--[-->
+                                                <div class="dropdown-item"><span>Acre</span></div>
+                                                <div class="dropdown-item"><span>Alagoas</span></div>
+                                                <div class="dropdown-item"><span>Amap\xc3\xa1</span></div>
+                                                <div class="dropdown-item"><span>Amazonas</span></div>
+                                                <div class="dropdown-item"><span>Bahia</span></div>
+                                                <div class="dropdown-item"><span>Cear\xc3\xa1</span></div>
+                                                <div class="dropdown-item"><span>Distrito Federal</span></div>
+                                                <div class="dropdown-item"><span>Esp\xc3\xadrito Santo</span></div>
+                                                <div class="dropdown-item"><span>Goi\xc3\xa1s</span></div>
+                                                <div class="dropdown-item"><span>Maranh\xc3\xa3o</span></div>
+                                                <div class="dropdown-item"><span>Mato Grosso</span></div>
+                                                <div class="dropdown-item"><span>Mato Grosso do Sul</span></div>
+                                                <div class="dropdown-item"><span>Minas Gerais</span></div>
+                                                <div class="dropdown-item"><span>Par\xc3\xa1</span></div>
+                                                <div class="dropdown-item"><span>Para\xc3\xadba</span></div>
+                                                <div class="dropdown-item"><span>Paran\xc3\xa1</span></div>
+                                                <div class="dropdown-item"><span>Pernambuco</span></div>
+                                                <div class="dropdown-item"><span>Piau\xc3\xad</span></div>
+                                                <div class="dropdown-item"><span>Rio de Janeiro</span></div>
+                                                <div class="dropdown-item"><span>Rio Grande do Norte</span></div>
+                                                <div class="dropdown-item"><span>Rio Grande do Sul</span></div>
+                                                <div class="dropdown-item"><span>Rond\xc3\xb4nia</span></div>
+                                                <div class="dropdown-item"><span>Roraima</span></div>
+                                                <div class="dropdown-item"><span>Santa Catarina</span></div>
+                                                <div class="dropdown-item"><span>S\xc3\xa3o Paulo</span></div>
+                                                <div class="dropdown-item"><span>Sergipe</span></div>
+                                                <div class="dropdown-item"><span>Tocantins</span></div>
+                                                <div class="dropdown-item"><span>Exterior</span></div>
+                                                <!--]--><!--]--><!--]--><!--v-if--><!--v-if-->
+                                            </div>
+                                        </div>
+                                    </div><!--v-if-->
+                                </div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field"><!--[--><label class="label"><!--[--> Municipio <div
+                                        class="b-tooltip is-primary is-top" type="is-dark">
+                                        <div class="tooltip-content is-top" style="display:none;"><span
+                                                class=""></span><!--[-->Selecione pelo menos 1 estado<!--]--></div>
+                                        <div class="tooltip-trigger" style=""><!--[--><span class="icon is-small"
+                                                style=""><i class="fa fa-fa-solid fa-circle-info"></i></span><!--]-->
+                                        </div>
+                                    </div><!--]--></label><!--]--><!--[-->
+                                <div class="taginput control">
+                                    <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                        <div class="autocomplete control">
+                                            <div class="control has-icons-left"><input ellipsis
+                                                    placeholder="Selecione um munic\xc3\xadpio" disabled
+                                                    aria-autocomplete="list" class="input is-normal" type="is-info"
+                                                    autocomplete="off" value><span class="icon is-normal is-left"
+                                                    style=""><i class="fa fa-home"></i></span><!--v-if--><!--v-if-->
+                                            </div>
+                                            <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                style="display:none;">
+                                                <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]-->
+                                                <div class="dropdown-item"><!--[--><!--[--> N\xc3\xa3o foi encontrado
+                                                    <!--]--><!--]--></div><!--v-if-->
+                                            </div>
+                                        </div>
+                                    </div><!--v-if-->
+                                </div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field"><!--[--><label class="label"><!--[--> Bairro <div
+                                        class="b-tooltip is-primary is-top" type="is-dark">
+                                        <div class="tooltip-content is-top" style="display:none;"><span
+                                                class=""></span><!--[-->Digite o nome do bairro e aperte enter<!--]-->
+                                        </div>
+                                        <div class="tooltip-trigger" style=""><!--[--><span class="icon is-small"
+                                                style=""><i class="fa fa-fa-solid fa-circle-info"></i></span><!--]-->
+                                        </div>
+                                    </div><!--]--></label><!--]--><!--[-->
+                                <div class="taginput control">
+                                    <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                        <div class="autocomplete control">
+                                            <div class="control has-icons-left"><input
+                                                    placeholder="Digite o nome do bairro" aria-autocomplete="list"
+                                                    class="input is-normal" type="text" autocomplete="off" value><span
+                                                    class="icon is-normal is-left" style=""><i
+                                                        class="fa fa-home"></i></span><!--v-if--><!--v-if--></div>
+                                            <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                style="display:none;">
+                                                <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]--><!--v-if--><!--v-if-->
+                                            </div>
+                                        </div>
+                                    </div><!--v-if-->
+                                </div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field"><!--[--><label class="label"><!--[-->CEP<!--]--></label><!--]--><!--[-->
+                                <div class="taginput control">
+                                    <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                        <div class="autocomplete control">
+                                            <div class="control has-icons-left"><input placeholder="Somente 8 digitos"
+                                                    aria-autocomplete="list" class="input is-normal" type="text"
+                                                    autocomplete="off" maxlength="8" value><span
+                                                    class="icon is-normal is-left" style=""><i
+                                                        class="fa fa-home"></i></span><!--v-if--><!--v-if--></div>
+                                            <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                style="display:none;">
+                                                <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]--><!--v-if--><!--v-if-->
+                                            </div>
+                                        </div>
+                                    </div><small class=""><!--v-if--></small>
+                                </div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns search-content">
+                        <div class="column is-offset-1 is-2">
+                            <div class="field"><!--[--><label class="label"><!--[-->DDD<!--]--></label><!--]--><!--[-->
+                                <div class="taginput control">
+                                    <div class="taginput-container is-focusable"><!--[--><!--[--><!--]--><!--]-->
+                                        <div class="autocomplete control">
+                                            <div class="control has-icons-left"><input placeholder="2 d\xc3\xadgitos"
+                                                    aria-autocomplete="list" class="input is-normal" type="text"
+                                                    autocomplete="off" maxlength="2" value><span
+                                                    class="icon is-normal is-left" style=""><i
+                                                        class="fa fa-phone"></i></span><!--v-if--><!--v-if--></div>
+                                            <div class="dropdown-menu dropdown-content is-opened-bottom"
+                                                style="display:none;">
+                                                <!--v-if--><!--[--><!--[--><!--v-if--><!--[--><!--]--><!--]--><!--]--><!--v-if--><!--v-if-->
+                                            </div>
+                                        </div>
+                                    </div><small class=""><!--v-if--></small>
+                                </div><!--]--><!--v-if-->
+                            </div>
+                            <section></section>
+                        </div>
+                        <div class="column is-4">
+                            <div class="columns">
+                                <div class="column"><label class="label">Data de Abertura - A partir
+                                        de</label><span></span></div>
+                                <div class="column"><label class="label">Data de Abertura -
+                                        At\xc3\xa9</label><span></span></div>
+                            </div>
+                        </div>
+                        <div class="column is-2">
+                            <section>
+                                <div class="field"><!--[--><label class="label"><!--[-->Capital
+                                        Social<!--]--></label><!--]--><!--[-->
+                                    <div class="control"><input placeholder="A partir de" min="0" class="input is-info"
+                                            type="number" autocomplete="off"><!--v-if--><!--v-if--><!--v-if--></div>
+                                    <!--]--><!--v-if-->
+                                </div>
+                            </section>
+                        </div>
+                        <div class="column is-2">
+                            <div class="field"><!--[--><label class="label"><!--[-->Capital
+                                    Social<!--]--></label><!--]--><!--[-->
+                                <div class="control"><input placeholder="At\xc3\xa9" min="0" class="input" type="number"
+                                        autocomplete="off"><!--v-if--><!--v-if--><!--v-if--></div><!--]--><!--v-if-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-offset-1 is-3">
+                            <div class="field"><!--[--><!--v-if--><!--]-->
+                                <div class="control">
+                                    <div class="field is-grouped"><!--[--><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-default"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Somente
+                                                MEI <!--]--></span></label><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-default"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Excluir
+                                                MEI <!--]--></span></label><!--]--></div>
+                                </div><!--v-if-->
+                            </div>
+                            <div class="field"><!--[--><!--v-if--><!--]-->
+                                <div class="control">
+                                    <div class="field is-grouped"><!--[--><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-info"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Somente
+                                                matriz <!--]--></span></label><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-info"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Somente
+                                                filial <!--]--></span></label><!--]--></div>
+                                </div><!--v-if-->
+                            </div>
+                        </div>
+                        <div class="column is-5">
+                            <div class="field" is-grouped><!--[--><!--v-if--><!--]-->
+                                <div class="control">
+                                    <div class="field has-addons"><!--[--><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-success"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Com
+                                                contato de telefone <!--]--></span></label><label class="switch"
+                                            value="true"><input type="checkbox" role="switch" class="" value="false"
+                                                true-value="true" false-value="false"><span
+                                                class="check is-success"><span class=""></span></span><span
+                                                class="control-label"><!--[--> Somente fixo
+                                                <!--]--></span></label><!--]--></div>
+                                </div><!--v-if-->
+                            </div>
+                            <div class="field" is-grouped><!--[--><!--v-if--><!--]-->
+                                <div class="control">
+                                    <div class="field has-addons"><!--[--><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-warning"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Somente
+                                                celular <!--]--></span></label><label class="switch" value="true"><input
+                                                type="checkbox" role="switch" class="" value="false" true-value="true"
+                                                false-value="false"><span class="check is-warning"><span
+                                                    class=""></span></span><span class="control-label"><!--[--> Com
+                                                e-mail <!--]--></span></label><!--]--></div>
+                                </div><!--v-if-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-offset-1"><span></span></div>
+                    </div>
+                    <div></div>
+                    <hr>
+                    <div class="columns" style="">
+                        <div class="column is-offset-1 is-6">
+                            <nav class="pagination is-right is-default"><a role="button" href="#"
+                                    class="pagination-link pagination-previous is-disabled pagination-previous is-disabled"
+                                    aria-label="P\xc3\xa1gina 0." aria-current="false"><!--[--><span class="icon"
+                                        style="" aria-hidden="true"><i
+                                            class="fa fa-angle-left"></i></span><!--]--></a><a role="button" href="#"
+                                    class="pagination-link pagination-next is-disabled pagination-next is-disabled"
+                                    aria-label="P\xc3\xa1gina 2." aria-current="false"><!--[--><span class="icon"
+                                        style="" aria-hidden="true"><i class="fa fa-angle-right"></i></span><!--]--></a>
+                                <ul class="pagination-list">
+                                    <!--First--><!--v-if--><!--v-if--><!--Pages--><!--[--><!--]--><!--Last--><!--v-if--><!--v-if-->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-offset-1 is-6">
+                            <div>
+                                <div>
+                                    <div>
+                                        <div><!---->
+                                            <p class="has-text-weight-bold"> Nenhum resultado para sua pesquisa </p>
+                                            <!--[--><!--]-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4"><ins class="adsbygoogle" style="display:block;"
+                                data-ad-slot="9833155009" data-ad-format="auto" data-ad-region="page-0.8047014785719815"
+                                data-full-width-responsive="true"></ins></div>
+                    </div>
+                    <div class="columns" style="">
+                        <div class="column is-offset-1 is-6">
+                            <nav class="pagination is-right is-default"><a role="button" href="#"
+                                    class="pagination-link pagination-previous is-disabled pagination-previous is-disabled"
+                                    aria-label="P\xc3\xa1gina 0." aria-current="false"><!--[--><span class="icon"
+                                        style="" aria-hidden="true"><i
+                                            class="fa fa-angle-left"></i></span><!--]--></a><a role="button" href="#"
+                                    class="pagination-link pagination-next is-disabled pagination-next is-disabled"
+                                    aria-label="P\xc3\xa1gina 2." aria-current="false"><!--[--><span class="icon"
+                                        style="" aria-hidden="true"><i class="fa fa-angle-right"></i></span><!--]--></a>
+                                <ul class="pagination-list">
+                                    <!--First--><!--v-if--><!--v-if--><!--Pages--><!--[--><!--]--><!--Last--><!--v-if--><!--v-if-->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+                <div>
+                    <div class="b-sidebar" type="is-light"><!--v-if-->
+                        <div class="sidebar-content is-fixed is-fullheight is-fullwidth" style="display:none;">
+                            <!--[--><!--]--></div>
+                    </div>
+                </div>
+                <div><span></span></div>
+            </div><!--]-->
+            <div data-v-4984a40e>
+                <footer class="footer" data-v-4984a40e>
+                    <div class="content has-text-centered" data-v-4984a40e>
+                        <p data-v-4984a40e>Copyright \xc2\xa9 Casa dos Dados</p>
+                    </div>
+                    <div class="columns" data-v-4984a40e>
+                        <div class="column has-text-centered" data-v-4984a40e>
+                            <h4 class="bd-footer-title has-text-weight-medium has-text-justify" data-v-4984a40e> Links
+                            </h4>
+                            <p class="bd-footer-link" data-v-4984a40e><a href="/mapa-do-site" data-v-4984a40e><span
+                                        class="icon-text" data-v-4984a40e><span data-v-4984a40e>Mapa do
+                                            Site</span></span></a><br data-v-4984a40e><a
+                                    href="https://dados-abertos-rf-cnpj.casadosdados.com.br" target="_blank"
+                                    data-v-4984a40e><span class="icon-text" data-v-4984a40e><span data-v-4984a40e>Dados
+                                            Abertos de CNPJ da Receita Federal</span></span></a><br data-v-4984a40e><a
+                                    class="is-link" href="/suporte/contato" data-v-4984a40e><span class="icon-text"
+                                        data-v-4984a40e><span data-v-4984a40e>Entre em Contato</span></span></a><br
+                                    data-v-4984a40e><a class="is-link" target="_blank"
+                                    href="https://status.casadosdados.com.br/" data-v-4984a40e><span class="icon-text"
+                                        data-v-4984a40e><span data-v-4984a40e>Status</span></span></a></p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script type="application/json" id="__NUXT_DATA__"
+        data-ssr="true">[["Reactive",1],{"data":2,"state":3,"_errors":4,"serverRendered":5,"path":6,"pinia":7},{},{},{},true,"/solucao/cnpj/pesquisa-avancada?id=yAXmnq2PetEtwBbFTfTvce_DWXDlxizgQj4juRPGgF0%3D",{}]</script>
+    <script>window.__NUXT__ = {}; window.__NUXT__.config = { public: { ga: { id: "G-06Q5WY4PHL" }, baseUrlApi: "https://api.casadosdados.com.br", baseUrlBaiacuApi: "https://api.casadosdados.com.br", headerApiWAF: "", recaptchaKey: "6LekDnwUAAAAAKjbi5YgH3k2YRMhEyxOGAaYfaez", mapboxToken: "pk.eyJ1IjoiamhvbmF0YW1lbmV6ZXMiLCJhIjoiY2theGtuZnNwMDFsNzMwcGlyN2l3ZHF3dyJ9.P1mo-OAk7tJs12nG2IBNjw", turnstileSiteKey: "0x4AAAAAAAHDvOVlOi2CeG0s", "google-adsense": { tag: "adsbygoogle", pageLevelAds: false, includeQuery: false, analyticsUacct: "", analyticsDomainName: "", overlayBottom: false, test: false, onPageLoad: true, pauseOnLoad: false, id: "ca-pub-5784424731845028" } }, app: { baseURL: "/", buildAssetsDir: "assets-v2/", cdnURL: "" } }</script>
+    <script type="module" src="/assets-v2/entry.05b5061b.js" crossorigin></script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement(\'script\');d.innerHTML="window.__CF$cv$params={r:\'8912c4a0ccff6218\',t:\'MTcxNzk1MzM3Mi4wMDAwMDA=\'};var a=document.createElement(\'script\');a.nonce=\'\';a.src=\'/cdn-cgi/challenge-platform/scripts/jsd/main.js\';document.getElementsByTagName(\'head\')[0].appendChild(a);";b.getElementsByTagName(\'head\')[0].appendChild(d)}}if(document.body){var a=document.createElement(\'iframe\');a.height=1;a.width=1;a.style.position=\'absolute\';a.style.top=0;a.style.left=0;a.style.border=\'none\';a.style.visibility=\'hidden\';document.body.appendChild(a);if(\'loading\'!==document.readyState)c();else if(window.addEventListener)document.addEventListener(\'DOMContentLoaded\',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);\'loading\'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>\n
+
+</html>

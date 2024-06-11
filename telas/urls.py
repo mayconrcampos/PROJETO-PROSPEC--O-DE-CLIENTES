@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, login, logout, dashboard, cadastros, empresas, cadastra_empresa#, configuracoes, clientes, estoque, vendas
+from .views import index, login, logout, dashboard, cadastros, empresas, cadastra_empresa, atualiza_empresa, excluir_empresa#, configuracoes, clientes, estoque, vendas
 
 urlpatterns = [
     path("", index, name='index'),
@@ -9,8 +9,7 @@ urlpatterns = [
     path("app/cadastros", cadastros, name='cadastros'),
     path("app/cadastros/empresas", empresas, name='empresas'),
     path("app/cadastros/cadastra/empresa", cadastra_empresa, name='cadastra_empresa'),
-    # path("app/configuracoes", configuracoes, name='configuracoes'),
-    # path("app/clientes", clientes, name='clientes'),
-    # path("app/estoque", estoque, name='estoque'),
-    # path("app/vendas", vendas, name='vendas'),
+    path("app/cadastros/atualiza/empresa", atualiza_empresa, name='atualiza_empresa'),
+    path("app/cadastros/excluir/empresa", excluir_empresa, name='excluir_empresa'),
+
 ]

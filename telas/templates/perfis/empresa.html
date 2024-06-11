@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-3">
                     <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone" name="telefone">
+                    <input type="text" class="form-control form-control-sm foneInput" id="telefone" name="telefone">
                 </div>
                 <div class="col-3">
                   <label for="tem_zap" class="form-label">Tem Whatsapp?</label>
@@ -65,7 +65,11 @@
                 </div>
                 <div class="col-4">
                       <label for="uf" class="form-label">UF</label>
-                      <input type="text" class="form-control form-control-sm" id="uf" name="uf">
+                      <select name="uf" id="uf" class="form-control form-control-sm">
+                        {% for uf in ufs %}
+                            <option value="{{uf.sigla}}">{{uf.nome}}</option>
+                        {% endfor %}
+                      </select>
                 </div>
 
                 <div class="col-12 mt-2">
@@ -109,31 +113,111 @@
                             </td>
                             <td>
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button title="Clique aqui para abrir o menu" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-chevron-circle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="#">
+                                            <a 
+                                            class="dropdown-item"
+                                            href="#"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditaEmpresa{{empresa.id}}"
+                                            >
                                                 <i class="fas fa-edit"></i>
                                                 Editar
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="fas fa-trash-alt"></i>
-                                                Excluir
-                                            </a>
+                                            <form action="{% url 'excluir_empresa' %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="empresa_id" value="{{empresa.id}}">
+                                                <button 
+                                                    onclick="return confirm('Confirma exclusão desta empresa?')"
+                                                    type="submit"
+                                                    class="dropdown-item">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                    Excluir
+                                                </button>
+                                            </form>
                                         </li>
                                       
                                     </ul>
                                 </div>
                             </td>
                         </tr>
+                        {% include 'perfis/modal_edita_empresa.html' %}
                     {% endfor %}
                 </tbody>
               </table>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            function mascaraCNPJ(cnpj) {
+                cnpj = cnpj.replace(/\D/g, ""); // Remove tudo o que não é dígito
+                
+                // Limita o comprimento máximo para 14 dígitos antes de aplicar a máscara
+                if (cnpj.length > 14) {
+                    cnpj = cnpj.slice(0, 14);
+                }
+        
+                // Formata o CNPJ
+                cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto após os primeiros 2 dígitos
+                cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto após o segundo bloco de 3 dígitos
+                cnpj = cnpj.replace(/\.(\d{3})(\d)/, ".$1/$2"); // Coloca barra após o terceiro bloco de 3 dígitos
+                cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2"); // Coloca hífen após o bloco de 4 dígitos
+                return cnpj;
+            }
+        
+            const cnpjInput = document.getElementById("cnpj");
+            cnpjInput.addEventListener("input", function(e) {
+                let valorFormatado = mascaraCNPJ(e.target.value);
+                e.target.value = valorFormatado;
+            });
+        
+            // Opção adicional: Limita o número de caracteres permitidos durante a entrada
+            cnpjInput.addEventListener("keypress", function(e) {
+                // Permitir apenas números e controlar o comprimento máximo
+                if (e.key < '0' || e.key > '9') {
+                    e.preventDefault();
+                }
+                
+                if (cnpjInput.value.length >= 18) {
+                    e.preventDefault();
+                }
+            });
 
+            const phoneInputs = document.querySelectorAll('.foneInput');
+
+            phoneInputs.forEach(function(input) {
+              input.addEventListener('input', function(event) {
+                let phone = event.target.value;
+            
+                // Remover todos os caracteres que não são números
+                phone = phone.replace(/\D/g, '');
+            
+                // Limitar o telefone a no máximo 11 dígitos
+                if (phone.length > 11) {
+                  phone = phone.slice(0, 11);
+                }
+            
+                // Aplicar a máscara do telefone
+                if (phone.length > 2) {
+                  phone = phone.replace(/^(\d{2})(\d{1,5})/, '($1) $2');
+                }
+                if (phone.length > 7) {
+                  phone = phone.replace(/(\d{5})(\d{1,4})/, '$1-$2');
+                } else if (phone.length > 5) {
+                  phone = phone.replace(/(\d{5})$/, '-$1');
+                }
+            
+                // Atualizar o valor do campo de entrada com a máscara aplicada
+                event.target.value = phone;
+              });
+            });
+        });
+        </script>
+        
+        
 {% endblock 'conteudo' %}
